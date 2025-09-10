@@ -15,6 +15,10 @@
 	)
 </script>
 
+<svelte:head>
+	<meta name="description" content="An overview of Rust's iterator combinators, itertools, and more" />
+</svelte:head>
+
 <main>
 	<h1>Rust <code>Iterator</code> overview</h1>
 

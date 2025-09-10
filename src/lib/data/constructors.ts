@@ -112,7 +112,7 @@ export const constructors: Fn[] = [
   },
   {
     name: 'split',
-    args: [],
+    args: ['pattern'],
     category: ['Constructors', 'a string'],
     url: 'https://doc.rust-lang.org/std/primitive.str.html#method.split',
     description: `Returns an iterator over substrings of this string slice, separated by characters matched by a pattern.<br /><br />
