@@ -50,6 +50,12 @@
 	</Tabbar>
 </main>
 
+<footer>
+	<div class="footer-section">
+		<a href="https://github.com/Aloso/iterator-website">GitHub</a>
+	</div>
+</footer>
+
 <style lang="scss">
 	.checkboxLabel {
 		display: block;
