@@ -204,6 +204,12 @@ export const consumers: Fn[] = [
     related: ['zip'],
   },
   {
+    name: 'partition',
+    args: ['predicate'],
+    category: ['Consumers', 'Accumulate'],
+    description: 'Consumes an iterator, creating two collections from it.',
+  },
+  {
     name: 'try_collect',
     args: [],
     generic_args: ['Collection'],
@@ -312,12 +318,6 @@ export const consumers: Fn[] = [
     description:
       'An iterator method that applies a fallible function to each item in the iterator, stopping at the first error and returning that error.',
     related: ['for_each'],
-  },
-  {
-    name: 'partition',
-    args: ['predicate'],
-    category: ['Consumers', 'Misc.'],
-    description: 'Consumes an iterator, creating two collections from it.',
   },
   {
     name: 'advance_by',
