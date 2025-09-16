@@ -5,6 +5,7 @@
 
   let includeNightly = $state(false)
   let includeItertools = $state(false)
+  let showTypes = $state(false)
 
   let filteredFns = $derived(
     functions.filter((f) => {
@@ -33,19 +34,28 @@
     perform the iteration.
   </p>
 
-  <label class="checkboxLabel">
-    <input type="checkbox" bind:checked={includeNightly} /> include nightly-only methods
-  </label>
-  <label class="checkboxLabel tbd">
-    <input type="checkbox" bind:checked={includeItertools} disabled /> <code>itertools</code> TBD
-  </label>
+  <div class="options">
+    <label class="checkboxLabel">
+      <input type="checkbox" bind:checked={showTypes} /> show types
+    </label>
+    <label class="checkboxLabel">
+      <input type="checkbox" bind:checked={includeNightly} /> include nightly-only methods
+    </label>
+    <label class="checkboxLabel tbd">
+      <input type="checkbox" bind:checked={includeItertools} disabled /> <code>itertools</code> TBD
+    </label>
+  </div>
+
+  {#if showTypes}
+    <p><strong>Note</strong>: Type signatures are simplified.</p>
+  {/if}
 
   <Tabbar id="tabs" activeTab={1} names={['Constructors', 'Adapters', 'Consumers', 'Other']}>
     {#snippet tab(_i, tabName)}
       {#if tabName === 'Constructors'}
         <p>I want to create an iterator from...</p>
       {/if}
-      <Functions {tabName} functions={filteredFns.filter((f) => f.category[0] === tabName)} />
+      <Functions {tabName} functions={filteredFns.filter((f) => f.category[0] === tabName)} {showTypes} />
     {/snippet}
   </Tabbar>
 </main>
@@ -57,6 +67,12 @@
 </footer>
 
 <style lang="scss">
+  .options {
+    padding: 0.5rem 1rem;
+    background-color: #7772;
+    border-radius: 0.5rem;
+  }
+
   .checkboxLabel {
     display: block;
     margin: 0.33rem 0;
